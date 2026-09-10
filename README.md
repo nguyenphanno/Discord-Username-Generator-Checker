@@ -2,29 +2,35 @@
 
 # `Discord Username Generator & Checker`
 
-### High-performance · Multi-threaded · Proxy-powered
+### High-performance · Concurrent · Proxy-powered
 
 <p>
-  <img src="https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
-  <img src="https://img.shields.io/badge/Windows%20%7C%20Linux%20%7C%20macOS-Platform-18181B?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/HTTP%20%7C%20SOCKS5-Proxy-F97316?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go 1.22+" />
+  <img src="https://img.shields.io/badge/Windows-Linux-macOS-18181B?style=for-the-badge" alt="Platforms" />
+  <img src="https://img.shields.io/badge/HTTP-SOCKS5-F97316?style=for-the-badge" alt="Proxy Support" />
 </p>
 
 <p>
-  <img src="https://img.shields.io/github/stars/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&logo=github&logoColor=white&color=e3b341" />
-  <img src="https://img.shields.io/github/forks/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&logo=github&logoColor=white&color=5865F2" />
-  <img src="https://img.shields.io/github/issues/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&color=EF4444" />
-  <img src="https://img.shields.io/github/license/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&color=22C55E" />
+  <img src="https://img.shields.io/github/stars/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&logo=github&logoColor=white&color=e3b341" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&logo=github&logoColor=white&color=5865F2" alt="Forks" />
+  <img src="https://img.shields.io/github/issues/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&color=EF4444" alt="Issues" />
+  <img src="https://img.shields.io/github/license/nguyenphanno/Discord-Username-Generator-Checker?style=for-the-badge&color=22C55E" alt="License" />
 </p>
 
 <br>
 
-<img src="https://count.getloli.com/@nguyenphanno?name=nguyenphanno&theme=booru-qualityhentais&padding=1&offset=0&align=center&scale=1&pixelated=0&darkmode=auto" alt="Profile Views" />
+<img
+src="https://count.getloli.com/@nguyenphanno?name=nguyenphanno&theme=booru-qualityhentais&padding=1&offset=0&align=center&scale=1&pixelated=0&darkmode=auto"
+alt="Profile Views"
+/>
 
 <br><br>
 
 <a href="https://github.com/nguyenphanno/Discord-Username-Generator-Checker">
-<img src="https://img.shields.io/badge/View%20Repository-18181B?style=for-the-badge&logo=github&logoColor=white" />
+  <img
+    src="https://img.shields.io/badge/View%20Repository-18181B?style=for-the-badge&logo=github&logoColor=white"
+    alt="View Repository"
+  />
 </a>
 
 </div>
@@ -37,6 +43,14 @@
 
 </div>
 
+## Overview
+
+Discord Username Generator & Checker is a high-performance Go utility designed for concurrent username generation and availability checking.
+
+The application provides an interactive terminal interface, configurable concurrency, HTTP/SOCKS5 proxy support, automatic proxy health management, session persistence, and structured result logging.
+
+---
+
 ## Preview
 
 <div align="center">
@@ -44,11 +58,8 @@
 <img
 src="https://raw.githubusercontent.com/nguyenphanno/Discord-Username-Generator-Checker/main/image/nguyenphanno.png"
 width="900"
-alt="Main Preview"
+alt="Application Preview"
 />
-
-<br><br>
-
 <img
 src="https://raw.githubusercontent.com/nguyenphanno/Discord-Username-Generator-Checker/main/image/logs.png"
 width="900"
@@ -61,54 +72,263 @@ alt="Logs Preview"
 
 ## Features
 
+| Feature                       | Description                                                               |
+| ----------------------------- | ------------------------------------------------------------------------- |
+| **Concurrent Processing**     | Process multiple username checks concurrently using configurable workers. |
+| **Smart Quiet Mode**          | Reduce console output and display only relevant availability results.     |
+| **HTTP / SOCKS5 Proxies**     | Supports both HTTP and SOCKS5 proxy endpoints.                            |
+| **Proxy Health Checking**     | Validate proxies before and during a session.                             |
+| **Proxy Scoring**             | Prioritize reliable proxies based on their performance.                   |
+| **Automatic Proxy Disabling** | Temporarily remove unhealthy proxies from the active pool.                |
+| **Automatic Resume**          | Previously processed usernames can be skipped automatically.              |
+| **Session Logging**           | Keep results and activity organized by session.                           |
+| **Request Logging**           | Record timestamps and proxy information for processed requests.           |
+| **Browser Headers**           | Uses configurable browser-style request properties.                       |
+| **Interactive Configuration** | Configure the session directly from the terminal.                         |
+| **Result Export**             | Export available, taken, checked usernames and working proxies.           |
+
+---
+
+## Modes
+
+### `live`
+
+Continuously generate usernames and check their availability.
+
+### `check`
+
+Read usernames from:
+
+```text
+usernames.txt
+```
+
+and check them against the configured endpoint.
+
+### `generate`
+
+Generate usernames without performing availability checks.
+
+### `both`
+
+Generate usernames and immediately process them through the checker.
+
 <div align="center">
 
-`⚡ Multi-threaded`  
-`🤫 Smart Quiet`  
-`🌐 Elite Proxy`  
-`🔄 Auto Resume`
-
-<br>
-
-`📝 Sniper Logging`  
-`🕵 Browser Fingerprinting`  
-`🖥 Interactive Setup`
-
-<br>
-
-`💾 Session Export`  
-`🛡 Proxy Health Check`
+<img src="https://img.shields.io/badge/LIVE-Continuous-8B5CF6?style=for-the-badge" alt="Live Mode" />
+<img src="https://img.shields.io/badge/CHECK-File%20Based-5865F2?style=for-the-badge" alt="Check Mode" />
+<img src="https://img.shields.io/badge/GENERATE-Generation-00ADD8?style=for-the-badge" alt="Generate Mode" />
+<img src="https://img.shields.io/badge/BOTH-Combined-e3b341?style=for-the-badge" alt="Both Mode" />
 
 </div>
 
-### High-performance checking
+---
 
-Multi-threaded username checking designed for fast concurrent processing.
+## Architecture
 
-### Smart Quiet Mode
-
-Only displays the important results:
+The application follows a concurrent processing model:
 
 ```text
-AVAILABLE
-TAKEN
+                   ┌─────────────────────┐
+                   │   Interactive CLI   │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │    Configuration    │
+                   └──────────┬──────────┘
+                              │
+               ┌──────────────┴──────────────┐
+               │                             │
+               ▼                             ▼
+      ┌─────────────────┐          ┌─────────────────┐
+      │ Username Engine │          │  Proxy Manager  │
+      └────────┬────────┘          └────────┬────────┘
+               │                            │
+               └──────────────┬─────────────┘
+                              ▼
+                   ┌─────────────────────┐
+                   │ Concurrent Workers  │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │ Availability Check  │
+                   └──────────┬──────────┘
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+                    ▼                   ▼
+             ┌────────────┐      ┌────────────┐
+             │  Results   │      │    Logs    │
+             └────────────┘      └────────────┘
 ```
 
-### Elite Proxy System
+---
 
-Automatic proxy scoring and prioritization with health-checking and automatic disabling of low-quality proxies.
+## Installation
 
-### Automatic Resume
+### Requirements
 
-Previously checked, taken and available usernames are automatically skipped.
+* Go `1.22+`
+* Internet connection
+* Optional HTTP or SOCKS5 proxies
 
-### Sniper-ready Logging
+### Clone Repository
 
-Logs include timestamp and proxy information.
+```bash
+git clone https://github.com/nguyenphanno/Discord-Username-Generator-Checker.git
+cd Discord-Username-Generator-Checker
+```
 
-### Browser Fingerprinting
+### Install Dependencies
 
-Uses realistic browser-related properties:
+```bash
+go mod tidy
+```
+
+### Configure Proxies
+
+Create:
+
+```text
+proxies.txt
+```
+
+Supported formats:
+
+```text
+http://ip:port
+```
+
+```text
+socks5://ip:port
+```
+
+Authentication proxies can use:
+
+```text
+http://username:password@ip:port
+```
+
+```text
+socks5://username:password@ip:port
+```
+
+### Start
+
+```bash
+go run main.go
+```
+
+For a compiled binary:
+
+```bash
+go build -o discord-username-checker
+```
+
+Windows:
+
+```powershell
+go build -o discord-username-checker.exe
+```
+
+---
+
+## Configuration
+
+The application provides an interactive configuration flow before starting a session.
+
+Available options include:
+
+```text
+Mode
+Threads
+Request Delay
+Target Amount
+Username Length
+Smart Quiet Mode
+Proxy Health Check
+Proxy Validation
+```
+
+Example:
+
+```text
+Mode: live
+Threads: 30
+Delay: 0.10s
+Target: 10000
+Length: 4-5
+Quiet Mode: enabled
+Proxy Check: enabled
+```
+
+Configuration is applied per session and does not require manual editing of source code.
+
+---
+
+## Proxy System
+
+The proxy manager is designed around automatic validation and prioritization.
+
+```text
+Load Proxies
+     │
+     ▼
+Health Check
+     │
+     ▼
+Calculate Score
+     │
+     ▼
+Prioritize
+     │
+     ▼
+Assign Worker
+     │
+     ▼
+Monitor Performance
+     │
+     ├───────────────┐
+     │               │
+     ▼               ▼
+ Healthy          Unhealthy
+     │               │
+     ▼               ▼
+ Keep Active     Disable
+```
+
+### Supported Protocols
+
+```text
+HTTP
+SOCKS5
+```
+
+### Proxy Management
+
+The system can:
+
+* Validate proxies before use
+* Track proxy performance
+* Prioritize reliable proxies
+* Detect failed connections
+* Disable unhealthy proxies
+* Reuse healthy proxies
+* Export working proxies
+
+Working proxies can be written to:
+
+```text
+working_proxies.txt
+```
+
+---
+
+## Browser Headers
+
+Requests can include browser-style properties such as:
 
 ```text
 User-Agent
@@ -117,158 +337,31 @@ Timezone
 Locale
 ```
 
-### Session Export
-
-Results are organized into session-based output and logs.
+These values are used to provide a more consistent request profile during processing.
 
 ---
 
-## Modes
+## Automatic Resume
 
-### `live`
+The application can preserve previously processed usernames.
 
-Continuously generate and check usernames.
+This allows subsequent sessions to avoid unnecessary duplicate checks.
 
-### `check`
-
-Check usernames from:
+Typical result states include:
 
 ```text
-usernames.txt
+Available
+Taken
+Checked
 ```
 
-### `generate`
-
-Generate usernames only.
-
-### `both`
-
-Generate usernames and then check them.
-
-<br>
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/LIVE-Continuous-8B5CF6?style=for-the-badge" />
-<img src="https://img.shields.io/badge/CHECK-File%20Based-5865F2?style=for-the-badge" />
-<img src="https://img.shields.io/badge/GENERATE-Generate-00ADD8?style=for-the-badge" />
-<img src="https://img.shields.io/badge/BOTH-Combined-e3b341?style=for-the-badge" />
-
-</div>
-
----
-
-## Installation
-
-### Clone
-
-```bash
-git clone https://github.com/nguyenphanno/Discord-Username-Generator-Checker.git
-cd Discord-Username-Generator-Checker
-```
-
-### Dependencies
-
-```bash
-go mod tidy
-```
-
-### Proxies
-
-Create:
-
-```text
-proxies.txt
-```
-
-Supported:
-
-```text
-http://ip:port
-socks5://ip:port
-```
-
-### Run
-
-```bash
-go run main.go
-```
-
----
-
-## Usage
-
-The tool starts with an interactive console setup.
-
-Configure:
-
-```text
-Mode
-Number of threads
-Delay between requests
-Target amount of usernames
-Username length range
-Smart Quiet mode
-Proxy health-check settings
-```
-
-The configuration is selected directly from the console before the session starts.
-
----
-
-## Proxy System
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/HTTP-SUPPORTED-F97316?style=for-the-badge" />
-<img src="https://img.shields.io/badge/SOCKS5-SUPPORTED-8B5CF6?style=for-the-badge" />
-
-<br><br>
-
-<b>Advanced Elite Proxy System</b>
-
-<br>
-
-<sub>
-Automatic scoring · Prioritization · Health-checking · Auto-disabling
-</sub>
-
-</div>
-
-### Supported formats
-
-```text
-http://ip:port
-socks5://ip:port
-```
-
-### Proxy management
-
-```text
-Load
- ↓
-Health Check
- ↓
-Score
- ↓
-Prioritize
- ↓
-Use
- ↓
-Monitor
-```
-
-Low-quality proxies can be automatically disabled, while high-quality working proxies can be exported to:
-
-```text
-working_proxies.txt
-```
+Previously processed entries can therefore be skipped depending on the current session configuration.
 
 ---
 
 ## Output
 
-### Results
+### Result Files
 
 ```text
 available.txt
@@ -277,52 +370,133 @@ checked.txt
 working_proxies.txt
 ```
 
-### Sessions
+### Session Directory
 
 ```text
 results/
 ```
 
-Contains session logs and sniper logs.
+Example:
 
-<div align="center">
+```text
+results/
+├── session-2026-09-11/
+│   ├── available.txt
+│   ├── taken.txt
+│   ├── checked.txt
+│   └── session.log
+│
+└── sniper.log
+```
 
-<img src="https://img.shields.io/badge/AVAILABLE-available.txt-22C55E?style=for-the-badge" />
-<img src="https://img.shields.io/badge/TAKEN-taken.txt-EF4444?style=for-the-badge" />
-<img src="https://img.shields.io/badge/CHECKED-checked.txt-5865F2?style=for-the-badge" />
-<img src="https://img.shields.io/badge/WORKING%20PROXIES-working__proxies.txt-F97316?style=for-the-badge" />
-
-</div>
+The exact output structure may vary depending on the current application configuration.
 
 ---
 
-## Recommended Settings
+## Logging
 
-<div align="center">
-
-### Balanced
+Logs contain useful runtime information such as:
 
 ```text
-Threads      25 – 40
-Delay        0.05 – 0.15 seconds
-Smart Quiet  Enabled
+Timestamp
+Username
+Status
+Proxy
+Request Result
+Worker
+```
+
+Example:
+
+```text
+[05:42:18] [SUCCESS] Username available: example
+[05:42:19] [INFO] Checked username: another
+[05:42:20] [WARN] Proxy temporarily disabled
+```
+
+Quiet mode can reduce console output to essential status information:
+
+```text
+AVAILABLE
+TAKEN
+```
+
+---
+
+## Performance
+
+The checker uses concurrent workers to process multiple requests in parallel.
+
+Performance depends on:
+
+* Number of workers
+* Proxy quality
+* Network latency
+* Request delay
+* Endpoint response time
+* System resources
+
+A balanced configuration is generally preferable to simply increasing concurrency.
+
+### Recommended Balanced Profile
+
+```text
+Threads      25 - 40
+Delay        0.05 - 0.15 seconds
+Quiet Mode   Enabled
 Proxy Check  Enabled
 ```
 
-</div>
+Actual performance may vary depending on network and proxy conditions.
 
 ---
 
-## Notes
+## Project Structure
 
-> **Username Availability**
-> This tool only checks username availability.
+```text
+Discord-Username-Generator-Checker/
+│
+├── image/
+│   ├── nguyenphanno.png
+│   └── logs.png
+│
+├── results/
+│
+├── main.go
+├── go.mod
+├── go.sum
+├── proxies.txt
+├── usernames.txt
+├── available.txt
+├── taken.txt
+├── checked.txt
+├── working_proxies.txt
+└── README.md
+```
 
-> **Public Endpoint**
-> Uses Discord’s public unauthenticated endpoint.
+---
 
-> **Proxy Quality**
-> High-quality proxies are strongly recommended for best performance.
+## Platform Support
+
+| Platform | Support   |
+| -------- | --------- |
+| Windows  | Supported |
+| Linux    | Supported |
+| macOS    | Supported |
+
+Go's cross-platform build system makes it possible to compile the application for multiple operating systems.
+
+---
+
+## Disclaimer
+
+This project is provided for educational and research purposes.
+
+The application only checks username availability through publicly accessible endpoints and does not provide account access, credential collection, or account automation.
+
+Users are responsible for complying with Discord's Terms of Service, applicable API policies, and local laws.
+
+Avoid excessive request rates and use appropriate delays and proxy configurations.
 
 ---
 
@@ -344,11 +518,17 @@ alt="nguyenphanno"
 <br>
 
 <a href="https://github.com/nguyenphanno">
-<img src="https://img.shields.io/badge/GitHub-nguyenphanno-18181B?style=for-the-badge&logo=github&logoColor=white" />
+  <img
+    src="https://img.shields.io/badge/GitHub-nguyenphanno-18181B?style=for-the-badge&logo=github&logoColor=white"
+    alt="GitHub"
+  />
 </a>
 
 <a href="https://discord.com/users/1469216989158309928">
-<img src="https://img.shields.io/badge/Discord-Presence-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
+  <img
+    src="https://img.shields.io/badge/Discord-Presence-5865F2?style=for-the-badge&logo=discord&logoColor=white"
+    alt="Discord"
+  />
 </a>
 
 </div>
@@ -357,30 +537,28 @@ alt="nguyenphanno"
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=5865F2&height=3&section=footer" width="100%" />
+## Support
 
-<br><br>
-
-## Support the Project
-
-If you find this project useful, consider giving it a star.
+If this project is useful to you, consider starring the repository.
 
 <br>
 
 <a href="https://github.com/nguyenphanno/Discord-Username-Generator-Checker">
-<img src="https://img.shields.io/badge/☆%20Star%20Repository-e3b341?style=for-the-badge&logo=github&logoColor=white" />
+  <img
+    src="https://img.shields.io/badge/Star%20Repository-e3b341?style=for-the-badge&logo=github&logoColor=white"
+    alt="Star Repository"
+  />
 </a>
 
 <br><br>
 
-<img src="https://img.shields.io/github/last-commit/nguyenphanno/Discord-Username-Generator-Checker?style=flat-square&color=8B5CF6" />
+<img
+src="https://img.shields.io/github/last-commit/nguyenphanno/Discord-Username-Generator-Checker?style=flat-square&color=8B5CF6"
+alt="Last Commit"
+/>
 
 <br><br>
 
-Made by <b>nguyenphanno</b>
-
-<br><br>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:5865F2,40:312e81,70:18181b,100:09090b&height=120&section=footer" width="100%" />
+Made by <strong>nguyenphanno</strong>
 
 </div>
