@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:09090b,45:18181b,75:312e81,100:5865F2&height=220&section=header&text=Discord%20Username%20Tool&fontSize=44&fontColor=ffffff&fontAlignY=38&desc=Generator%20%26%20Checker&descAlignY=60&descSize=20&animation=fadeIn" width="100%" />
-
-# Discord Username Generator & Checker
+# `Discord Username Generator & Checker`
 
 ### High-performance · Multi-threaded · Proxy-powered
 
